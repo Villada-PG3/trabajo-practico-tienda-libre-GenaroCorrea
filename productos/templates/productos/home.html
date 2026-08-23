@@ -1,12 +1,13 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Tienda Libre - Inicio</title>
-</head>
-<body>
-    <h1>Bienvenido a Tienda Libre</h1>
-    <p>La mejor plataforma e-commerce desarrollada con Django.</p>
-    <a href="/acerca-de-mi/">Conocer al desarrollador</a>
-</body>
-</html>
+{% extends 'productos/base.html' %}
+
+{% block title %}Inicio - Tienda Libre{% endblock %}
+
+{% block content %}
+<div class="p-5 mb-4 bg-body-tertiary rounded-3 shadow-sm">
+    <div class="container-fluid py-3">
+        <h1 class="display-5 fw-bold text-primary">Bienvenido a Tienda Libre</h1>
+        <p class="col-md-8 fs-4">La mejor plataforma e-commerce desarrollada con Django y Bootstrap.</p>
+        <a class="btn btn-primary btn-lg" href="/acerca-de-mi/" role="button">Conocer al desarrollador</a>
+    </div>
+</div>
+{% endblock %}

@@ -1,12 +1,14 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Acerca de mí</title>
-</head>
-<body>
-    <h1>Acerca del Desarrollador</h1>
-    <p>¡Hola! Soy Genaro Correa, estudiante de programación trabajando en el proyecto Tienda Libre.</p>
-    <a href="/">Volver al inicio</a>
-</body>
-</html>
+{% extends 'productos/base.html' %}
+
+{% block title %}Acerca de mí - Tienda Libre{% endblock %}
+
+{% block content %}
+<div class="card shadow-sm p-4">
+    <h1 class="card-title text-dark">Acerca del Desarrollador</h1>
+    <hr>
+    <p class="card-text fs-5">¡Hola! Soy <strong>Genaro Correa</strong>, estudiante de programación trabajando en el proyecto e-commerce <em>Tienda Libre</em>.</p>
+    <div>
+        <a href="/" class="btn btn-outline-secondary">Volver al inicio</a>
+    </div>
+</div>
+{% endblock %}
