@@ -1,13 +1,41 @@
 {% extends 'productos/base.html' %}
 
-{% block title %}Inicio - Tienda Libre{% endblock %}
+{% block title %}{{ nombre_tienda|title }} - Inicio{% endblock %}
 
 {% block content %}
-<div class="p-5 mb-4 bg-body-tertiary rounded-3 shadow-sm">
+<div class="card shadow-sm p-4 text-center bg-primary-subtle mb-5">
     <div class="container-fluid py-3">
-        <h1 class="display-5 fw-bold text-primary">Bienvenido a Tienda Libre</h1>
-        <p class="col-md-8 fs-4">La mejor plataforma e-commerce desarrollada con Django y Bootstrap.</p>
-        <a class="btn btn-primary btn-lg" href="/acerca-de-mi/" role="button">Conocer al desarrollador</a>
+        <h1 class="card-title text-primary">{{ nombre_tienda|title }}</h1>
+        <p class="col-md-8 mx-auto fs-4">
+            La mejor plataforma e-commerce desarrollada con Django y Bootstrap. 
+        </p>
+        <a class="btn btn-primary btn-lg mt-2" href="/acerca-de-mi/" role="button">Conocer al desarrollador</a>
     </div>
+</div>
+
+<h2 class="mb-4 fw-bold">Productos Destacados</h2>
+
+<div class="row g-4">
+    {% for producto in productos_destacados %}
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title fw-bold text-capitalize">{{ producto.nombre }}</h5>
+                    <p class="card-text text-muted flex-grow-1">
+                        {{ producto.descripcion|truncatechars:90 }}
+                    </p>
+                    <p class="card-text fs-5 fw-bold text-success">
+                        ${{ producto.precio|floatformat:2|default:"Consultar precio" }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    {% empty %}
+        <div class="col-12 text-center py-5">
+            <div class="alert alert-warning fs-5">
+                No hay productos destacados disponibles en este momento.
+            </div>
+        </div>
+    {% endfor %}
 </div>
 {% endblock %}
